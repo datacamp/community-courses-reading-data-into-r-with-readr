@@ -16,56 +16,45 @@
   
   -   type    : NormalExercise
       title   : Read a fixed-width file
-      content : Use read_fwf to import a directory of some famous names.
+      content : Use read_table to import a directory of some famous names.  Then use read_fwf to make use of the skip and na arguments.
   
   -   type    : NormalExercise
-      title   : Read a 
-      content : 
+      title   : Reading a text file
+      content : Use read_file and read_lines to import tweets into R.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Writing .csv and .tsv files
+      content : Use write_csv and write_tsv to save data frames to the disk.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Writing .rds files
+      content : Use write_rds to preserve metadata about R objects.
 
 - chapter_title : Parsing functions in readr
-  chapter_description: Just a description.
+  chapter_description: Once you have successfully imported your data, you may need to change the type of one or more columns.
   exercises:
 
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Coercing columns to different data types
+      content : Use type_convert to change the data type of numerical data in trees.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Coercing character columns into factors
+      content : Use parse_factor to interpret columns from professor salaries as factors.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Creating Date objects
+      content : Use parse_date to create Date columns in weather data.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Parsing number formats
+      content : Use parse_number to interpret currency and numbers with commas.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
-  
+      title   : Saving metadata to the disk
+      content : Use spec_delim() to preserve metadata to be imported later.
+
   -   type    : NormalExercise
-      title   : 
-      content : 
-  
-  -   type    : NormalExercise
-      title   : 
-      content : 
-  
-  -   type    : NormalExercise
-      title   : 
-      content : 
-  
-  -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Importing metadata
+      content : Recover metadata from the previous exercise.
+      
