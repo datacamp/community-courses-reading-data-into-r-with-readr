@@ -4,7 +4,7 @@
       
   -   type    : NormalExercise
       title   : Reading a .csv file
-      content : Use read_csv to import chick weight data.  Note automatic coercion of columns.
+      content : Use read_csv to import chick weight data.  Note automatic coercion of columns for some; coerce others manually.
   
   -   type    : NormalExercise
       title   : Reading a .tsv file
@@ -15,73 +15,57 @@
       content : Use read_csv2 to import a semicolon-delimited file containing tree measurements.
   
   -   type    : NormalExercise
-      title   : Getting the class and dimensions of your data
-      content : class(), dim()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Viewing the structure of your data
-      content : str(), glimpse(), summary(), names()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Looking at your data
-      content : head(), tail(), tbl_df(), print()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Visualizing your data
-      content : hist(), plot()
+      title   : 
+      content : 
 
 - chapter_title : Parsing functions in readr
   chapter_description: Just a description.
   exercises:
 
-  -   type    : MultipleChoiceExercise
-      title   : Principles of tidy data
-      content : Which is NOT a principle of tidy data? A variable contains all values measured on the same unit across attributes
-  
-  -   type    : MultipleChoiceExercise
-      title   : Common symptoms of messy data
-      content : Which is NOT a common symptom of messy data? A table contains only one type of observational unit
-  
-  -   type    : MultipleChoiceExercise
-      title   : Functions in tidyr
-      content : Which is not a function in tidyr? filter()
-  
-  -   type    : MultipleChoiceExercise
-      title   : What kind of messy are the BMI data?
-      content : Which symptom of messy data seen in BMI data? Column headers are values, not variable names
+  -   type    : NormalExercise
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Gathering columns into key-value pairs
-      content : gather()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Spreading key-value pairs into columns
-      content : spread()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Separating columns
-      content : separate()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Uniting columns
-      content : unite()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Column headers are values, not variable names
-      content : gather()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Multiple values are stored in one column
-      content : separate()
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : Variables are stored in both rows and columns
-      content : gather(), spread()
-      
-  -   type    : NormalExercise
-      title   : Multiple types of observational units are stored in the same table
-      content : Use select() and distinct() to break one table into two
+      title   : 
+      content : 
   
   -   type    : NormalExercise
-      title   : A single observational unit is stored in multiple tables
-      content : Use inner_join() to join two tables into one
+      title   : 
+      content : 
