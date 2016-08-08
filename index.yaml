@@ -1,0 +1,87 @@
+- chapter_title: Importing data with readr
+  chapter_description: This chapter covers all the useful `readr` functions that reads in data.
+  exercises:
+      
+  -   type    : MultipleChoiceExercise
+      title   : The data cleaning process
+      content : Which is not part of the data cleaning process as outlined in video? Removing or replacing missing data
+  
+  -   type    : NormalExercise
+      title   : Here's what messy data looks like
+      content : Use pre-code to display data from final challenge using head(..., n = 20)
+      
+  -   type    : NormalExercise
+      title   : Here's what clean data looks like
+      content : Use pre-code to clean the data in full and display the result with head(..., n = 20)
+  
+  -   type    : NormalExercise
+      title   : Getting the class and dimensions of your data
+      content : class(), dim()
+  
+  -   type    : NormalExercise
+      title   : Viewing the structure of your data
+      content : str(), glimpse(), summary(), names()
+  
+  -   type    : NormalExercise
+      title   : Looking at your data
+      content : head(), tail(), tbl_df(), print()
+  
+  -   type    : NormalExercise
+      title   : Visualizing your data
+      content : hist(), plot()
+
+- chapter_title : Parsing functions in readr
+  chapter_description: Just a description.
+  exercises:
+
+  -   type    : MultipleChoiceExercise
+      title   : Principles of tidy data
+      content : Which is NOT a principle of tidy data? A variable contains all values measured on the same unit across attributes
+  
+  -   type    : MultipleChoiceExercise
+      title   : Common symptoms of messy data
+      content : Which is NOT a common symptom of messy data? A table contains only one type of observational unit
+  
+  -   type    : MultipleChoiceExercise
+      title   : Functions in tidyr
+      content : Which is not a function in tidyr? filter()
+  
+  -   type    : MultipleChoiceExercise
+      title   : What kind of messy are the BMI data?
+      content : Which symptom of messy data seen in BMI data? Column headers are values, not variable names
+  
+  -   type    : NormalExercise
+      title   : Gathering columns into key-value pairs
+      content : gather()
+  
+  -   type    : NormalExercise
+      title   : Spreading key-value pairs into columns
+      content : spread()
+  
+  -   type    : NormalExercise
+      title   : Separating columns
+      content : separate()
+  
+  -   type    : NormalExercise
+      title   : Uniting columns
+      content : unite()
+  
+  -   type    : NormalExercise
+      title   : Column headers are values, not variable names
+      content : gather()
+  
+  -   type    : NormalExercise
+      title   : Multiple values are stored in one column
+      content : separate()
+  
+  -   type    : NormalExercise
+      title   : Variables are stored in both rows and columns
+      content : gather(), spread()
+      
+  -   type    : NormalExercise
+      title   : Multiple types of observational units are stored in the same table
+      content : Use select() and distinct() to break one table into two
+  
+  -   type    : NormalExercise
+      title   : A single observational unit is stored in multiple tables
+      content : Use inner_join() to join two tables into one
