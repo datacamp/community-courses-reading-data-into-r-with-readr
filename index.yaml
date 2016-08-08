@@ -48,7 +48,7 @@
   
   -   type    : NormalExercise
       title   : Parsing number formats
-      content : Use parse_number to interpret currency and numbers with commas.
+      content : Use parse_number to interpret national debt data as currency and numbers with commas.
   
   -   type    : NormalExercise
       title   : Saving metadata to the disk
