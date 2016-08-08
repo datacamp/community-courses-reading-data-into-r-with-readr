@@ -15,11 +15,11 @@
       content : Use read_csv2 to import a semicolon-delimited file containing tree measurements.
   
   -   type    : NormalExercise
-      title   : 
-      content : 
+      title   : Read a fixed-width file
+      content : Use read_fwf to import a directory of some famous names.
   
   -   type    : NormalExercise
-      title   : 
+      title   : Read a 
       content : 
   
   -   type    : NormalExercise
