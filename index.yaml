@@ -2,17 +2,17 @@
   chapter_description: This chapter covers all the useful `readr` functions that reads in data.
   exercises:
       
-  -   type    : MultipleChoiceExercise
-      title   : The data cleaning process
-      content : Which is not part of the data cleaning process as outlined in video? Removing or replacing missing data
+  -   type    : NormalExercise
+      title   : Reading a .csv file
+      content : Use read_csv to import chick weight data.  Note automatic coercion of columns.
   
   -   type    : NormalExercise
-      title   : Here's what messy data looks like
-      content : Use pre-code to display data from final challenge using head(..., n = 20)
+      title   : Reading a .tsv file
+      content : Use read_tsv to import salary info.  Add a col_names argument to specify column names.
       
   -   type    : NormalExercise
-      title   : Here's what clean data looks like
-      content : Use pre-code to clean the data in full and display the result with head(..., n = 20)
+      title   : Reading a European .csv
+      content : Use read_csv2 to import a semicolon-delimited file containing tree measurements.
   
   -   type    : NormalExercise
       title   : Getting the class and dimensions of your data
