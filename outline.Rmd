@@ -10,12 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Chapter 1: Reading in data
 
 * Read delimited files: `read_delim()`, `read_csv()`, `read_tsv()`, `read_csv2()`
-   * 1 exercise each (4)
-   * `col_names` and `col_type` argument specified with `col()` specification.
+    * 1 exercise each (4)
+    * `col_names` and `col_type` argument specified with `col()` specification.
    
 * Read fixed width files: `read_fwf()`, `read_table()`.
-   * 1 exercise each (2)
-   * `skip` and `na` arguments
+    * 1 exercise each (2)
+    * `skip` and `na` arguments
    
 * Read lines: `read_lines()`.
 * Read whole file: `read_file()` - this comes in as a string.  Very different behavior compared to other functions that produce data frames.  How should we incorporate this?
@@ -23,23 +23,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Chapter 2: Special parsing functions
 
-* Re-parse existing data frame: 
+### Re-parse existing data frame: 
    * `type_convert()`
    * `parse_factor()`
    * `parse_datetime()`
       * `%I` for 12 hour time format:
       * `library(hms)`
       
-      * `parse_time("1 pm", "%I %p") #> 13:00:00`
+      * `parse_time("1 pm", "%I %p")`
       * `%AD` and `%AT` are “automatic” date and time parsers
    * `parse_number()`
       * `parse_number("$1000")`
       * `parse_number("1,234,567.78")`
       
-* Retrieving information about a file
+### Retrieving information about a file
    * spec_delim() - Not super important; leaving out unless convinced otherwise
    
-* Saving a file
+### Saving a file
    * `write_csv()` and `write_tsv()`
-   * This is about twice as fast as `write.csv()`, and never writes row names. output_columnis a generic method used to coerce columns to suitable output.
+   * This is about twice as fast as `write.csv()`, and never writes row names. output_column is a generic method used to coerce columns to suitable output.
    * `write_excel_csv()` ?
