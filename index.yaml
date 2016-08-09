@@ -1,5 +1,5 @@
 - chapter_title: Importing data with readr
-  chapter_description: This chapter covers all the useful `readr` functions that reads in data.
+  chapter_description: This chapter covers all the useful `readr` functions that read in data.
   exercises:
       
   -   type    : NormalExercise
