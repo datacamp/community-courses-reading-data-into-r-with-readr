@@ -5,39 +5,66 @@ description : This chapter covers all the useful `readr` functions that reads in
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Reading a .csv file
 
-Use read_csv to import chick weight data.  Note automatic coercion of columns for some; coerce others manually.
+Welcome to this mini-course on the `readr` package!  Over the next two chapters, you’ll be exposed to many of the great features this chapter has to offer.
+
+Let’s get started right away with some basic importing features.  Your first task will be to master the use of the `read_csv()` function.  There are many arguments available, but the only required argument is `file`, a path to a CSV file on the disk.
+
+You’ll be practicing your importing skills on a dataset containing weights of chickens and their feed type.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Load the `readr` package (already installed on DataCamp).
+- Use the `read_csv()` function to import `chickwts.csv`.  Call the resulting data frame `cwts`.
+- View the `head()` of `cwts`.
 
 *** =hint
-hint comes here
+Your call to `read_csv()` should take one argument: the name of the CSV file, in quotes.
 
 *** =pre_exercise_code
 ```{r}
-# pec
+## TODO: insert link from teach app
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Load readr
+library(readr)
+
+# Import chickwts.csv: cwts
+read_csv("chickwts.csv")
+
+# View the head of cwts
+head(cwts)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Load readr
+library(readr)
+
+# Import chickwts.csv: cwts
+read_csv("chickwts.csv")
+
+# View the head of cwts
+head(cwts)
 ```
 
 *** =sct
 ```{r}
+test_library_function("readr")
+test_function("read_csv")
+test_output_contains("head(cwts)")
+test_error()
 success_msg("Great work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Reading a .tsv file
 
-Use read_tsv to import salary info.  Add a col_names argument to specify column names.
+If your file happens to be tab-delimited, `readr` offers a function specifically for that purpose.  `read_tsv()` uses a TSV file to produce a data frame in R.
+
+`read_tsv()` behaves almost identically to `read_csv()`.  There are many optional arguments and one required argument, `file`.
+
+In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv`.  This time, we’ll also explore a couple of optional arguments.
 
 *** =instructions
 - instruction 1
@@ -69,7 +96,9 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Reading a European .csv
 
-Use read_csv2 to import a semicolon-delimited file containing tree measurements.
+In most of Europe, commas (rather than periods) are used as decimal points.  This creates an issue for comma-separated value files: since commas can no longer be used to separate values, semicolons are used instead.
+
+For this reason, `readr` provides `read_csv2()` which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`
 
 *** =instructions
 - instruction 1
