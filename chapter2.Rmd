@@ -1,0 +1,196 @@
+---
+title       : Parsing functions in readr
+description : Once you have successfully imported your data, you may need to change the type of one or more columns.
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Coercing columns to different data types
+
+Use type_convert to change the data type of numerical data in trees.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Coercing character columns into factors
+
+Use parse_factor to interpret columns from professor salaries as factors.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Creating Date objects
+
+Use parse_date to create Date columns in weather data.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Parsing number formats
+
+Use parse_number to interpret national debt data as currency and numbers with commas.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Saving metadata to the disk
+
+Use spec_delim() to preserve metadata to be imported later.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Importing metadata
+
+Recover metadata from the previous exercise.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+

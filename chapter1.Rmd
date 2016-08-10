@@ -1,0 +1,228 @@
+---
+title       : Importing data with readr
+description : This chapter covers all the useful `readr` functions that reads in data.
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Reading a .csv file
+
+Use read_csv to import chick weight data.  Note automatic coercion of columns for some; coerce others manually.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Reading a .tsv file
+
+Use read_tsv to import salary info.  Add a col_names argument to specify column names.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Reading a European .csv
+
+Use read_csv2 to import a semicolon-delimited file containing tree measurements.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Read a fixed-width file
+
+Use read_table to import a directory of some famous names.  Then use read_fwf to make use of the skip and na arguments.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Reading a text file
+
+Use read_file and read_lines to import tweets into R.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Writing .csv and .tsv files
+
+Use write_csv and write_tsv to save data frames to the disk.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Writing .rds files
+
+Use write_rds to preserve metadata about R objects.
+
+*** =instructions
+- instruction 1
+- instruction 2
+
+*** =hint
+hint comes here
+
+*** =pre_exercise_code
+```{r}
+# pec
+```
+
+*** =sample_code
+```{r}
+# sample code
+```
+
+*** =solution
+```{r}
+# solution code
+```
+
+*** =sct
+```{r}
+success_msg("Great work!")
+```
+
