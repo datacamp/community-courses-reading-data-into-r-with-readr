@@ -382,7 +382,7 @@ identical(trees1, trees2)
 *** =sct
 ```{r}
 test_function("write_rds", args = c("x", "path"))
-test_correct({test_object(trees2)}, 
+test_correct({test_object("trees2")}, 
              {
                  test_function("read_rds", args = "path")
                  test_error()
