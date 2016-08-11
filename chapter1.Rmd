@@ -148,7 +148,7 @@ trees <- read_csv2("trees.csv")
 dim(trees)
 head(trees)
 
-# Import data with read_csv2()
+# Import data with read_csv()
 trees_wrong <- read_csv("trees.csv")
 
 # View dimensions and head: trees_wrong
@@ -165,7 +165,7 @@ trees <- read_csv2("trees.csv")
 dim(trees)
 head(trees)
 
-# Import data with read_csv2()
+# Import data with read_csv()
 trees_wrong <- read_csv("trees.csv")
 
 # View dimensions and head: trees_wrong
@@ -175,13 +175,26 @@ head(trees_wrong)
 
 *** =sct
 ```{r}
+test_data_frame("trees", undefined_msg = "Don't forget to create `trees`!", incorrect_msg = "Did you import your data with `read_csv2()` to create `trees`?")
+test_function("read_csv2", incorrect_msg = "Did you import your data with `read_csv2()` to create `trees`?", not_called_msg = "Don't forget to import your data with `read_csv2()` to create `trees`!")
+
+test_output_contains("dim(trees)", incorrect_msg = "Did you print out the dimensions of `trees`?")
+test_output_contains("head(trees)", incorrect_msg = "Did you print the `head()` of `trees` to the console?")
+
+test_data_frame("trees_wrong", undefined_msg = "Don't forget to create `trees_wrong`!", incorrect_msg = "Did you import your data with `read_csv()` to create `trees_wrong`?")
+test_function("read_csv", incorrect_msg = "Did you import your data with `read_csv()` to create `trees_wrong`?", not_called_msg = "Don't forget to import your data with `read_csv()` to create `trees_wrong`!")
+
+test_output_contains("dim(trees_wrong)", incorrect_msg = "Did you print out the dimensions of `trees_wrong`?")
+test_output_contains("head(trees_wrong)", incorrect_msg = "Did you print the `head()` of `trees_wrong` to the console?")
+
+test_error()
 success_msg("Excellent work! The `read_csv()` function combined the three columns into one called `Girth; Height; Volume` because it couldn't recognize how the values were separated. If you see something like this in the future, now you know how to fix it!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Read a fixed-width file
 
-Use read_table to import a directory of some famous names.  Then use read_fwf to make use of the skip and na arguments.
+Use `read_table()` to import a directory of some famous names.  Then use `read_fwf()` to make use of the `skip` and `na` arguments.
 
 *** =instructions
 - instruction 1
