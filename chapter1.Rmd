@@ -90,8 +90,10 @@ Don't forget to specify the `file` argument to `read_tsv()` in quotes!
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.tsv", "Salaries.tsv")
 
+# Change file extension when downloading
+# Workaround because teach app appears not to recognize TSV files
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", "Salaries.tsv")
 ```
 
 *** =sample_code
