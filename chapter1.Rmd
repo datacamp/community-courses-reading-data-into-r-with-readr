@@ -248,32 +248,58 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:86feb802cd
 ## Reading a text file
 
-Use read_file and read_lines to import tweets into R.
+If you want to perform some kind of text mining analysis, it can be very useful to quickly import text files into R.  `readr` offers two ways of doing so.
+
+The first way is to use `read_lines()`.  This function returns a vector of character strings.  Each item in the vector represents one line in the original file.
+
+The second way is to use `read_file()`, which returns a length 1 vector of the entire file, with line breaks represented as `\n`.
+
+In this exercise, you'll be working with a collection of tweets from Carrot Facts on Twitter.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Import `tweets.txt` using `read_lines()`.  Call the resulting character vector `tweets`.
+- Import `tweets.txt` using `read_file()`.  Call the resulting string `tweets_all`.
 
 *** =hint
-hint comes here
+Both functions take one argument: a file name in quotes.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/tweets.txt")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Import as a character vector, one item per line: tweets
+tweets <- read_lines("tweets.txt")
+
+# Import as a length 1 vector: tweets_all
+tweets_all <- read_file("tweets.txt")
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Import as a character vector, one item per line: tweets
+tweets <- read_lines("tweets.txt")
+
+# Import as a length 1 vector: tweets_all
+tweets_all <- read_file("tweets.txt")
 ```
 
 *** =sct
 ```{r}
+test_correct({test_object("tweets")}, 
+             {
+                 test_function("read_lines", args = "file")
+                 test_error()
+             })
+test_correct({test_object("tweets_all")}, 
+             {
+                 test_function("read_file", args = "file")
+                 test_error()
+             })
+test_error()
 success_msg("Great work!")
 ```
 
@@ -326,6 +352,7 @@ write_csv(cwts2, "chickwts.csv", append = TRUE)
 ```{r}
 test_function("write_csv", args = c("x", "path"), index = 1)
 test_function("write_csv", args = c("x", "path", "append"), index = 2)
+test_error()
 success_msg("Great work!")
 ```
 
