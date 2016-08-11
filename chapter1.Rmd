@@ -60,6 +60,18 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:5c4acd4138
 ## Reading a .tsv file
 
+In the previous exercise, you might have noticed this message when you called `read_csv()`:
+
+```
+Parsed with column specification:
+cols(
+  weight = col_integer(),
+  feed = col_character()
+)
+```
+
+This occurs every time any `readr` function is called to import data. In fact, all `readr` functions that read in data has the arguments `col_names` and `col_type`, which allow column specifications. These arguments are useful when you know you want to import certain columns of the data with certain names or as certain types. The `readr` package does a great job guessing what each column type should be, but it's important to know that you can also customize this further. 
+
 If your file happens to be tab-delimited, `readr` offers a function specifically for that purpose.  `read_tsv()` uses a TSV file to produce a data frame in R.
 
 `read_tsv()` behaves almost identically to `read_csv()`.  There are many optional arguments and one required argument, `file`.
@@ -119,7 +131,7 @@ In most of Europe, commas (rather than periods) are used as decimal points.  Thi
 
 For this reason, `readr` provides `read_csv2()` which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`.
 
-In this exercise, you'll see what happens when you incorrectly use `read_csv()` on datasets that contains values separated by semicolons. You'll import a dataset that contains information on the girth, height, and volume for Black Cherry Trees.
+In this exercise, you'll see what happens when you incorrectly use `read_csv()` on datasets that contain values separated by semicolons. You'll import a dataset that contains information on the girth, height, and volume for Black Cherry Trees.
 
 *** =instructions
 The `readr` package and the `trees.csv` file are already loaded in your workspace.
