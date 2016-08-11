@@ -289,7 +289,7 @@ Take a look at the other arguments using `?read_csv`.  Notice especially that sw
 
 *** =instructions
 - Use `write_csv()` to save the `cwts` data set as `chickwts.csv`.
-- Save the same data with the same name, but this time set the `append` argument to `TRUE`.
+- Save `cwts2`, which has more chicken data, using the same function and file name, but this time set the `append` argument to `TRUE`.
 
 *** =hint
 hint comes here
@@ -297,21 +297,34 @@ hint comes here
 *** =pre_exercise_code
 ```{r}
 library(readr)
-read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv")
+
+cwts <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv")
+
+cwts2 <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts2.csv")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Save cwts as chickwts.csv
+write_csv(cwts, "chickwts.csv")
+
+# Append cwts2 to chickwts.csv
+write_csv(cwts2, "chickwts.csv", append = TRUE)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Save cwts as chickwts.csv
+write_csv(cwts, "chickwts.csv")
+
+# Append cwts2 to chickwts.csv
+write_csv(cwts2, "chickwts.csv", append = TRUE)
 ```
 
 *** =sct
 ```{r}
+test_function("write_csv", args = c("x", "path"), index = 1)
+test_function("write_csv", args = c("x", "path", "append"), index = 2)
 success_msg("Great work!")
 ```
 
