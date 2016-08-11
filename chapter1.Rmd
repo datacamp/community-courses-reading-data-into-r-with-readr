@@ -217,31 +217,50 @@ success_msg("Excellent work! The `read_csv()` function combined the three column
 
 Use `read_table()` to import a directory of some famous names.  Then use `read_fwf()` to make use of the `skip` and `na` arguments.
 
+Sometimes you will run into files containing columns of data that all line up on one side, but are "ragged" on the other side (like how R prints data frames to the console).  These so-called fixed width files can be read by `readr`'s `read_table()` function.
+
+Inside `names.txt` are a few famous names with states and fake phone numbers.  When you import it, you will also set the name of each column by passing a vector to the `col_names` argument.
+
 *** =instructions
-- instruction 1
-- instruction 2
+- Import `names.txt` using `read_table()`.  Pass a vector containing `"name"`, `"state"`, and `"phone"` as the `col_names` argument.  Call the resulting data frame `names`.
+- View the head of `names`.
 
 *** =hint
-hint comes here
+`read_table()` should take a file name, in quotes, and the character vector `c("name", "state", "phone")` as arguments.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/names.txt", "names.csv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/names.txt", "names.txt")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Import names.txt: names
+names <- read_table("names.txt", col_names = c("name", "state", "phone"))
+
+# Print head of names
+head(names)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Import names.txt: names
+names <- read_table("names.txt", col_names = c("name", "state", "phone"))
+
+# Print head of names
+head(names)
 ```
 
 *** =sct
 ```{r}
+test_correct({test_object("names")}, 
+             {
+                 test_function("read_table", args = c("file", "col_names"))
+                 test_error()
+             })
+test_output_contains("head(names)")
+test_error()
 success_msg("Great work!")
 ```
 
