@@ -2,7 +2,7 @@
 title       : Parsing functions in readr
 description : Once you have successfully imported your data, you may need to change the type of one or more columns.
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ddabbd341d
 ## Coercing columns to different data types
 
 Use type_convert to change the data type of numerical data in trees.
@@ -34,7 +34,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:4d212a1085
 ## Coercing character columns into factors
 
 Use parse_factor to interpret columns from professor salaries as factors.
@@ -66,7 +66,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ae367ecf0a
 ## Creating Date objects
 
 Use parse_date to create Date columns in weather data.
@@ -98,7 +98,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:3ace73122f
 ## Parsing number formats
 
 Use parse_number to interpret national debt data as currency and numbers with commas.
@@ -130,7 +130,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:74ee790657
 ## Saving metadata to the disk
 
 Use spec_delim() to preserve metadata to be imported later.
@@ -162,7 +162,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:832bd3d11f
 ## Importing metadata
 
 Recover metadata from the previous exercise.
