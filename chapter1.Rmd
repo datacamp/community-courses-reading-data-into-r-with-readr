@@ -76,7 +76,7 @@ All `readr` functions that imports data also has the argument `col_names` which 
 
 These arguments are useful when you know you want to import certain columns of the data  as certain types with certain names. The `readr` package does a great job guessing what each column type and name should be, but it's important to know that you can also customize this further with the `col_names` and `col_type` arguments.
 
-In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports TSV files. This time, you’ll also explore a couple of optional arguments.
+In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also explore a couple of optional arguments.
 
 *** =instructions
 The `readr` package is loaded in your workspace.
