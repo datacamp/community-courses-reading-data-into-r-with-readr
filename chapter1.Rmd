@@ -12,7 +12,7 @@ Let’s get started right away with some basic importing features.  Your first t
 You’ll be practicing your importing skills on a dataset containing weights of chickens and their feed type.
 
 *** =instructions
-- Load the `readr` package (already installed on DataCamp).
+- Load the `readr` package.
 - Use the `read_csv()` function to import `chickwts.csv`.  Call the resulting data frame `cwts`.
 - View the `head()` of `cwts`.
 
@@ -30,7 +30,7 @@ Your call to `read_csv()` should take one argument: the name of the CSV file, in
 library(readr)
 
 # Import chickwts.csv: cwts
-read_csv("chickwts.csv")
+cwts <- read_csv("chickwts.csv")
 
 # View the head of cwts
 head(cwts)
@@ -42,7 +42,7 @@ head(cwts)
 library(readr)
 
 # Import chickwts.csv: cwts
-read_csv("chickwts.csv")
+cwts <- read_csv("chickwts.csv")
 
 # View the head of cwts
 head(cwts)
@@ -67,29 +67,49 @@ If your file happens to be tab-delimited, `readr` offers a function specifically
 In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv`.  This time, we’ll also explore a couple of optional arguments.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Load the `readr` package.
+- Use the `read_tsv()` function to read in the `Salaries.tsv` file. Store the result in an object called `salaries`.
+- View the `head()` of `salaries`.
 
 *** =hint
-hint comes here
+Don't forget to specify the `file` argument to `read_tsv()` in quotes!
 
 *** =pre_exercise_code
 ```{r}
-# pec
+# TODO: add AWS link to Salaries.tsv
+
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Load readr
+library(readr)
+
+# Import data: salaries
+salaries <- read_tsv("Salaries.tsv")
+
+# View first six rows of salaries
+head(salaries)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Load readr
+library(readr)
+
+# Import data: salaries
+salaries <- read_tsv("Salaries.tsv")
+
+# View first six rows of salaries
+head(salaries)
 ```
 
 *** =sct
 ```{r}
+test_library_function("readr")
+test_function("read_tsv", not_called_msg = "Don't forget to call `read_tsv()` to import your data.", incorrect_msg = "Did you call the `read_tsv()` function to import your data? The name of the file is `Salaries.tsv`.")
+test_function("head", incorrect_msg = "Did you print the first six rows of `salaries` using `head()`?")
+test_error()
 success_msg("Great work!")
 ```
 
@@ -98,23 +118,30 @@ success_msg("Great work!")
 
 In most of Europe, commas (rather than periods) are used as decimal points.  This creates an issue for comma-separated value files: since commas can no longer be used to separate values, semicolons are used instead.
 
-For this reason, `readr` provides `read_csv2()` which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`
+For this reason, `readr` provides `read_csv2()` which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`.
+
+In this exercise, you'll see what happens when you incorrectly use `read_csv()` on `trees.csv`, which separates its values with semicolons. This dataset is part of the `dataset` package and contains information on the girth, height, and volume for Black Cherry Trees.
 
 *** =instructions
-- instruction 1
-- instruction 2
+The `readr` package is already loaded in your workspace.
+
+- Incorrectly import `trees.csv` with the `read_csv()` function and store the result as `trees1`.
+- View the first six rows of `trees1`.
+- Now correctly import the data with the `read_csv2()` function and store the result as `trees2`.
+- View the first six rows of `trees2`. Do you see the difference?
 
 *** =hint
-hint comes here
+The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `file` argument to both calls and make sure it's in quotes!
 
 *** =pre_exercise_code
 ```{r}
-# pec
+# Add trees.csv file to workspace here
+
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Incorrectly import trees.csv usin
 ```
 
 *** =solution
