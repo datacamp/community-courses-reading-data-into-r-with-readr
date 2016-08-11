@@ -334,28 +334,49 @@ success_msg("Great work!")
 
 Sometimes, saving to a CSV file just won't cut it.  If the R object you're working with has metadata associated with it, saving to a CSV will cause that information to be lost.
 
-For example, if your dataset has one column of factors and other columns with characters, there will be no easy way to restore that metadata from a CSV.
+For example, if your dataset has one column of factors and other columns with characters, there will be no easy way to restore that metadata from a CSV.  For this reason, `readr` offers a `write_rds()` function that exports an entire R object (metadata and all).
+
+If you've used `saveRDS()` in the past, you will have no trouble using `write_rds()`.  The only major difference between the two is that `write_rds()` does not compress the file by default.
+
+The corrolary to `write_rds()` is `read_rds()`.  Again, this is very similar to the base package's `readRDS()` (in fact, it's a wrapper around the same).  It does, however, use a naming scheme that's consisent with the rest of `readr`.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Use `write_rds()` to save the `trees` data frame as `trees.rds`.
+- Use `read_rds()` to restore `trees.rds` to an R object called `trees2`.
 
 *** =hint
-hint comes here
+- Your call to `write_rds()` should take two arguments: a data frame and a file name in quotes.
+- Your call to `read_rds()` should only take a file name in quotes.  Assign the result of this call to `trees2`.
+- Determine whether `trees` is the same as `trees2`.  You can just use the `==` operator.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
+trees <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/trees.csv")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Save trees as trees.rds
+write_rds(trees, "trees.rds")
+
+# Import trees.rds: trees2
+trees2 <- read_rds("trees.rds")
+
+# Check whether trees and trees2 are the same
+trees == trees2
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Save trees as trees.rds
+write_rds(trees, "trees.rds")
+
+# Import trees.rds: trees2
+trees2 <- read_rds("trees.rds")
+
+# Check whether trees and trees2 are the same
+trees == trees2
 ```
 
 *** =sct
