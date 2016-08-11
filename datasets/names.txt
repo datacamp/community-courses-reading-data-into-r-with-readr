@@ -1,4 +1,4 @@
-Oprah Winfrey       California   310-555-4111
+Oprah Winfrey       null         800-555-4111
 Walt Disney         Florida      407-555-4341
 Michael Scott       Pennsylvania 570-555-2301
 Cosmo Kramer        New York     212-555-9337

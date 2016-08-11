@@ -215,15 +215,17 @@ success_msg("Excellent work! The `read_csv()` function combined the three column
 --- type:NormalExercise lang:r xp:100 skills:1 key:a44d920a83
 ## Read a fixed-width file
 
-Use `read_table()` to import a directory of some famous names.  Then use `read_fwf()` to make use of the `skip` and `na` arguments.
-
-Sometimes you will run into files containing columns of data that all line up on one side, but are "ragged" on the other side (like how R prints data frames to the console).  These so-called fixed width files can be read by `readr`'s `read_table()` function.
+Sometimes you will run into files containing columns of data that are separated by whitespace and all line up on one side (like how R prints data frames to the console).  These files can be read by `readr`'s `read_table()` function.
 
 Inside `names.txt` are a few famous names with states and fake phone numbers.  When you import it, you will also set the name of each column by passing a vector to the `col_names` argument.
+
+After your first import, you'll notice that there was a missing value in the `state` column that was left as a character string instead of being converted to `NA`.  We can fix that by specifying the `na` argument to include entries of `"NA"` or `"null"`.
 
 *** =instructions
 - Import `names.txt` using `read_table()`.  Pass a vector containing `"name"`, `"state"`, and `"phone"` as the `col_names` argument.  Call the resulting data frame `names`.
 - View the head of `names`.
+- Import the same file using the same function, but this time specify the `na` argument as a character vector containing `"NA"` and `"null"`.
+- View the head of `names` again.
 
 *** =hint
 `read_table()` should take a file name, in quotes, and the character vector `c("name", "state", "phone")` as arguments.
@@ -241,6 +243,12 @@ names <- read_table("names.txt", col_names = c("name", "state", "phone"))
 
 # Print head of names
 head(names)
+
+# Import names.txt, accounting for null values: names2
+names2 <- read_table("names.txt", col_names = c("name", "state", "phone"), na = c("NA", "null"))
+
+# Print head of names again
+head(names)
 ```
 
 *** =solution
@@ -250,16 +258,32 @@ names <- read_table("names.txt", col_names = c("name", "state", "phone"))
 
 # Print head of names
 head(names)
+
+# Import names.txt, accounting for null values: names2
+names2 <- read_table("names.txt", col_names = c("name", "state", "phone"), na = c("NA", "null"))
+
+# Print head of names again
+head(names)
 ```
 
 *** =sct
 ```{r}
 test_correct({test_object("names")}, 
              {
-                 test_function("read_table", args = c("file", "col_names"))
+                 test_function("read_table", 
+                               args = c("file", "col_names"), 
+                               index = 1)
                  test_error()
              })
 test_output_contains("head(names)")
+test_correct({test_object("names2")}, 
+             {
+                 test_function("read_table", 
+                               args = c("file", "col_names", "na"), 
+                               index = 2)
+                 test_error()
+             })
+test_output_contains("head(names2)")
 test_error()
 success_msg("Great work!")
 ```
