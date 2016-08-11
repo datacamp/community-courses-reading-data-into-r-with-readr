@@ -77,7 +77,7 @@ Don't forget to specify the `file` argument to `read_tsv()` in quotes!
 *** =pre_exercise_code
 ```{r}
 library(readr)
-# TODO: add AWS link to Salaries.tsv
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.csv", "Salaries.csv")
 ```
 
 *** =sample_code
@@ -135,7 +135,7 @@ The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `
 *** =pre_exercise_code
 ```{r}
 library(readr)
-# Add trees.csv file to workspace here
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/trees.csv", "trees.csv")
 ```
 
 *** =sample_code
@@ -205,6 +205,7 @@ hint comes here
 *** =pre_exercise_code
 ```{r}
 library(readr)
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/names.txt", "names.csv")
 ```
 
 *** =sample_code
@@ -275,6 +276,7 @@ hint comes here
 *** =pre_exercise_code
 ```{r}
 library(readr)
+read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv")
 ```
 
 *** =sample_code
