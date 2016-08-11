@@ -2,7 +2,7 @@
 title       : Importing data with readr
 description : This chapter covers all the useful `readr` functions that reads in data.
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:086558b449
 ## Reading a .csv file
 
 Welcome to this mini-course on the `readr` package!  Over the next two chapters, you’ll be exposed to many of the great features this chapter has to offer.
@@ -57,7 +57,7 @@ test_error()
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5c4acd4138
 ## Reading a .tsv file
 
 If your file happens to be tab-delimited, `readr` offers a function specifically for that purpose.  `read_tsv()` uses a TSV file to produce a data frame in R.
@@ -113,7 +113,7 @@ test_error()
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:26f83a8842
 ## Reading a European .csv
 
 In most of Europe, commas (rather than periods) are used as decimal points.  This creates an issue for comma-separated value files: since commas can no longer be used to separate values, semicolons are used instead.
@@ -191,7 +191,7 @@ test_error()
 success_msg("Excellent work! The `read_csv()` function combined the three columns into one called `Girth; Height; Volume` because it couldn't recognize how the values were separated. If you see something like this in the future, now you know how to fix it!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:a44d920a83
 ## Read a fixed-width file
 
 Use `read_table()` to import a directory of some famous names.  Then use `read_fwf()` to make use of the `skip` and `na` arguments.
@@ -223,7 +223,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:86feb802cd
 ## Reading a text file
 
 Use read_file and read_lines to import tweets into R.
@@ -255,7 +255,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:1475b4009c
 ## Writing .csv and .tsv files
 
 Use write_csv and write_tsv to save data frames to the disk.
@@ -287,7 +287,7 @@ hint comes here
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:79bb8b3329
 ## Writing .rds files
 
 Use write_rds to preserve metadata about R objects.
