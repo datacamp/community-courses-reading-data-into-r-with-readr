@@ -293,7 +293,7 @@ Take a look at the other arguments using `?read_csv`.  Notice especially that sw
 - Save `cwts2`, which has more chicken data, using the same function and file name, but this time set the `append` argument to `TRUE`.
 
 *** =hint
-hint comes here
+Your first call to `write_csv()` should take two arguments: a data frame and a new file name in quotes.  Your second call should take three arguments: a data frame, a pre-existing file name in quotes, and `append = TRUE`.
 
 *** =pre_exercise_code
 ```{r}
