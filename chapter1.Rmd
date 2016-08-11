@@ -365,7 +365,7 @@ write_rds(trees, "trees.rds")
 trees2 <- read_rds("trees.rds")
 
 # Check whether trees and trees2 are the same
-identical(trees1, trees2)
+identical(trees, trees2)
 ```
 
 *** =solution
