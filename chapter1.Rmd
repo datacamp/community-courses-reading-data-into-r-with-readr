@@ -286,7 +286,7 @@ If you've used `write.csv()` in the base package, you may have noticed that by d
 
 Not so with `write_csv()`, the equivalent function in the `readr` package.  No duplicate row numbers are added.  As with other functions you've seen, `write_csv()` has many optional arguments, but the required ones are `x` and `path`.
 
-Take a look at the other arguments using `?read_csv`.  Notice especially that switching to `append` mode (add to the end of a pre-existing file) automatically disables the writing of column names, unless you manually override both.
+Take a look at the other arguments using `?write_csv`.  Notice especially that because the default value of `col_names` is `!append`, switching to `append` mode (add to the end of a pre-existing file) automatically disables the writing of column names, unless you manually override both.  Makes sense, right?
 
 *** =instructions
 - Use `write_csv()` to save the `cwts` data set as `chickwts.csv`.
@@ -332,7 +332,9 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:79bb8b3329
 ## Writing .rds files
 
-Use write_rds to preserve metadata about R objects.
+Sometimes, saving to a CSV file just won't cut it.  If the R object you're working with has metadata associated with it, saving to a CSV will cause that information to be lost.
+
+For example, if your dataset has one column of factors and other columns with characters, there will be no easy way to restore that metadata from a CSV.
 
 *** =instructions
 - instruction 1
