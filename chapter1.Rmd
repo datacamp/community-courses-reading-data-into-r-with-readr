@@ -266,7 +266,7 @@ Both functions take one argument: a file name in quotes.
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/tweets.txt")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/tweets.txt", "tweets.txt")
 ```
 
 *** =sample_code
