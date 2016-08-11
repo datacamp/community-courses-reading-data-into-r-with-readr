@@ -128,7 +128,6 @@ head(salaries)
 
 *** =sct
 ```{r}
-test_library_function("readr")
 test_function("read_tsv", args = c("file", "col_names", "col_types"), not_called_msg = "Don't forget to call `read_tsv()` to import your data.")
 test_function("head", incorrect_msg = "Did you print the first six rows of `salaries` using `head()`?")
 test_error()
