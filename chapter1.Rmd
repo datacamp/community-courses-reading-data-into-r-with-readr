@@ -70,17 +70,18 @@ cols(
 )
 ```
 
-This occurs every time any `readr` function is called to import data. In fact, all `readr` functions that read in data has the arguments `col_names` and `col_type`, which allow column specifications. These arguments are useful when you know you want to import certain columns of the data with certain names or as certain types. The `readr` package does a great job guessing what each column type should be, but it's important to know that you can also customize this further. 
+This occurs every time any `readr` function is called to import data. In fact, all `readr` functions that imports data has the argument `col_type`, which allows for custom column specifications. The message shows how the `col_type` argument was specified by default. Notice the column specification is created by `cols()` and in it, are the names of the columns and a `col_*()` function that tells R to import it as the `*`. For example, the `weight` column was imported as `integer` and the `feed` column as `character` by default. One special `col_*()` function is the `col_skip()` column, which tells R to skip that column when importing the data.
 
-If your file happens to be tab-delimited, `readr` offers a function specifically for that purpose.  `read_tsv()` uses a TSV file to produce a data frame in R.
+All `readr` functions that imports data also has the argument `col_names` which is used when you want to name the columns different from what's in the data file. This argument takes in either `TRUE`, `FALSE`, or a character vector of column names. If set equal to `TRUE`, the first row of the input will be used as the column names. If `FALSE`, column names will be generated automatically: `X1`, `X2`, `X3`, etc. If `col_names` is a character vector, the values will be used as the names of the columns, and the first row of the input will be read into the first row of the output data frame.
 
-`read_tsv()` behaves almost identically to `read_csv()`.  There are many optional arguments and one required argument, `file`.
+These arguments are useful when you know you want to import certain columns of the data  as certain types with certain names. The `readr` package does a great job guessing what each column type and name should be, but it's important to know that you can also customize this further with the `col_names` and `col_type` arguments.
 
-In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv`.  This time, we’ll also explore a couple of optional arguments.
+In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports TSV files. This time, you’ll also explore a couple of optional arguments.
 
 *** =instructions
-- Load the `readr` package.
-- Use the `read_tsv()` function to read in the `Salaries.tsv` file. Store the result in an object called `salaries`.
+The `readr` package is loaded in your workspace.
+
+- Use the `read_tsv()` function to read in the `Salaries.tsv` file with a custom `cols()` specification that tells R to autogenerate column names skip columns `X2`, `X3`, and `X4`. Store the result in an object called `salaries`.
 - View the `head()` of `salaries`.
 
 *** =hint
@@ -89,7 +90,8 @@ Don't forget to specify the `file` argument to `read_tsv()` in quotes!
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.csv", "Salaries.csv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.tsv", "Salaries.tsv")
+
 ```
 
 *** =sample_code
@@ -97,7 +99,11 @@ download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_156
 ## readr is loaded
 
 # Import data: salaries
-salaries <- read_tsv("Salaries.tsv")
+salaries <- read_tsv("Salaries.tsv", col_names = FALSE, col_types = cols(
+    X2 = col_skip(),
+    X3 = col_skip(), 
+    X4 = col_skip()
+))
 
 # View first six rows of salaries
 head(salaries)
@@ -105,11 +111,16 @@ head(salaries)
 
 *** =solution
 ```{r}
-# Load readr
-library(readr)
+## readr is loaded
+
+## readr is loaded
 
 # Import data: salaries
-salaries <- read_tsv("Salaries.tsv")
+salaries <- read_tsv("Salaries.tsv", col_names = FALSE, col_types = cols(
+    X2 = col_skip(),
+    X3 = col_skip(), 
+    X4 = col_skip()
+))
 
 # View first six rows of salaries
 head(salaries)
@@ -118,7 +129,7 @@ head(salaries)
 *** =sct
 ```{r}
 test_library_function("readr")
-test_function("read_tsv", not_called_msg = "Don't forget to call `read_tsv()` to import your data.", incorrect_msg = "Did you call the `read_tsv()` function to import your data? The name of the file is `Salaries.tsv`.")
+test_function("read_tsv", args = c("file", "col_names", "col_types"), not_called_msg = "Don't forget to call `read_tsv()` to import your data.")
 test_function("head", incorrect_msg = "Did you print the first six rows of `salaries` using `head()`?")
 test_error()
 success_msg("Great work!")
