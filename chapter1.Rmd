@@ -258,11 +258,17 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:1475b4009c
 ## Writing .csv and .tsv files
 
-Use write_csv and write_tsv to save data frames to the disk.
+After importing and working with a data set, you'll want to save it off to the disk to make sure that your hard work doesn't go to waste.  In this exercise, you'll learn how.
+
+If you've used `write.csv()` in the base package, you may have noticed that by default, row numbers are inserted as the leftmost column.  Then when you import back into R, the row numbers show up as a column of data.
+
+Not so with `write_csv()`, the equivalent function in the `readr` package.  No duplicate row numbers are added.  As with other functions you've seen, `write_csv()` has many optional arguments, but the required ones are `x` and `path`.
+
+Take a look at the other arguments using `?read_csv`.  Notice especially that switching to `append` mode (add to the end of a pre-existing file) automatically disables the writing of column names, unless you manually override both.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Use `write_csv()` to save the `cwts` data set as `chickwts.csv`.
+- Save the same data with the same name, but this time set the `append` argument to `TRUE`.
 
 *** =hint
 hint comes here
