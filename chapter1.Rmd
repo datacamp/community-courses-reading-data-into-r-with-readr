@@ -74,9 +74,9 @@ This occurs every time any `readr` function is called to import data. In fact, a
 
 All `readr` functions that imports data also has the argument `col_names` which is used when you want to name the columns different from what's in the data file. This argument takes in either `TRUE`, `FALSE`, or a character vector of column names. If set equal to `TRUE`, the first row of the input will be used as the column names. If `FALSE`, column names will be generated automatically: `X1`, `X2`, `X3`, etc. If `col_names` is a character vector, the values will be used as the names of the columns, and the first row of the input will be read into the first row of the output data frame.
 
-These arguments are useful when you know you want to import certain columns of the data  as certain types with certain names. The `readr` package does a great job guessing what each column type and name should be, but it's important to know that you can also customize this further with the `col_names` and `col_type` arguments.
+These arguments are useful when you know you want to import certain columns of the data as certain types with certain names. The `readr` package does a great job guessing what each column type and name should be, but it's important to know that you can also customize this further with the `col_names` and `col_type` arguments.
 
-In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also explore a couple of optional arguments.
+In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also provide custom column specifications when you're reading in the data.
 
 *** =instructions
 The `readr` package is loaded in your workspace.
@@ -113,8 +113,6 @@ head(salaries)
 ```{r}
 ## readr is loaded
 
-## readr is loaded
-
 # Import data: salaries
 salaries <- read_tsv("Salaries.tsv", col_names = FALSE, col_types = cols(
     X2 = col_skip(),
@@ -132,7 +130,7 @@ test_library_function("readr")
 test_function("read_tsv", args = c("file", "col_names", "col_types"), not_called_msg = "Don't forget to call `read_tsv()` to import your data.")
 test_function("head", incorrect_msg = "Did you print the first six rows of `salaries` using `head()`?")
 test_error()
-success_msg("Great work!")
+success_msg("Nice work! The `readr` package makes importing data a lot more efficient with arguments that allows more flexibility. In the next exercise, you'll learn about another `readr` function, the `read_csv2()` function, used to import European data.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:26f83a8842
