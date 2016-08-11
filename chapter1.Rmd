@@ -76,14 +76,13 @@ Don't forget to specify the `file` argument to `read_tsv()` in quotes!
 
 *** =pre_exercise_code
 ```{r}
+library(readr)
 # TODO: add AWS link to Salaries.tsv
-
 ```
 
 *** =sample_code
 ```{r}
-# Load readr
-library(readr)
+## readr is loaded
 
 # Import data: salaries
 salaries <- read_tsv("Salaries.tsv")
@@ -135,8 +134,8 @@ The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `
 
 *** =pre_exercise_code
 ```{r}
-# Add trees.csv file to workspace here
 library(readr)
+# Add trees.csv file to workspace here
 ```
 
 *** =sample_code
@@ -205,7 +204,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
@@ -237,7 +236,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
@@ -275,7 +274,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
@@ -307,7 +306,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
