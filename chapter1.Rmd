@@ -247,8 +247,8 @@ head(names)
 # Import names.txt, accounting for null values: names2
 names2 <- read_table("names.txt", col_names = c("name", "state", "phone"), na = c("NA", "null"))
 
-# Print head of names again
-head(names)
+# Print head of names2
+head(names2)
 ```
 
 *** =solution
@@ -262,8 +262,8 @@ head(names)
 # Import names.txt, accounting for null values: names2
 names2 <- read_table("names.txt", col_names = c("name", "state", "phone"), na = c("NA", "null"))
 
-# Print head of names again
-head(names)
+# Print head of names2
+head(names2)
 ```
 
 *** =sct
