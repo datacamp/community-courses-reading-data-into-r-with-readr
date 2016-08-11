@@ -125,33 +125,57 @@ In this exercise, you'll see what happens when you incorrectly use `read_csv()` 
 *** =instructions
 The `readr` package is already loaded in your workspace.
 
-- Incorrectly import `trees.csv` with the `read_csv()` function and store the result as `trees1`.
-- View the first six rows of `trees1`.
-- Now correctly import the data with the `read_csv2()` function and store the result as `trees2`.
-- View the first six rows of `trees2`. Do you see the difference?
+- Correctly import `trees.csv` with the `read_csv2()` function and store the result as `trees`.
+- View the dimensions of `trees` using the `dim()` function and print the first six rows of `trees` to the console.
+- Now incorrectly import the data with `read_csv()` and store the result as `trees_wrong`.
+- View the dimensions of `trees_wrong` using the `dim()` function and print the first six rows of `trees_wrong` to the console.
 
 *** =hint
-The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `file` argument to both calls and make sure it's in quotes!
+The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `file` argument to both calls and make sure they're in quotes!
 
 *** =pre_exercise_code
 ```{r}
 # Add trees.csv file to workspace here
-
+library(readr)
 ```
 
 *** =sample_code
 ```{r}
-# Incorrectly import trees.csv usin
+# Import data with read_csv2()
+trees <- read_csv2("trees.csv")
+
+# View dimensions and head: trees
+dim(trees)
+head(trees)
+
+# Import data with read_csv2()
+trees_wrong <- read_csv("trees.csv")
+
+# View dimensions and head: trees_wrong
+dim(trees_wrong)
+head(trees_wrong)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Import data with read_csv2()
+trees <- read_csv2("trees.csv")
+
+# View dimensions and head: trees
+dim(trees)
+head(trees)
+
+# Import data with read_csv2()
+trees_wrong <- read_csv("trees.csv")
+
+# View dimensions and head: trees_wrong
+dim(trees_wrong)
+head(trees_wrong)
 ```
 
 *** =sct
 ```{r}
-success_msg("Great work!")
+success_msg("Excellent work! The `read_csv()` function combined the three columns into one called `Girth; Height; Volume` because it couldn't recognize how the values were separated. If you see something like this in the future, now you know how to fix it!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
