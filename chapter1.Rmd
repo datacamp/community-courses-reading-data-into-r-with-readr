@@ -9,6 +9,8 @@ Welcome to this mini-course on the `readr` package!  Over the next two chapters,
 
 Let’s get started right away with some basic importing features.  Your first task will be to master the use of the `read_csv()` function.  There are many arguments available, but the only required argument is `file`, a path to a CSV file on the disk.
 
+If you've imported data in the past, you've probably used `read.csv()`, which comes in base R.  One big advantage that `read_csv()` has over the base function is that it doesn't convert strings into factors by default.  Instead, `read_csv()` recognizes 8 different data types (integer, logical, etc.) and leaves anything else as characters.  That way, you don't have to set `stringsAsFactors` to `FALSE` any time you import a CSV file with character strings.
+
 You’ll be practicing your importing skills on a dataset containing weights of chickens and their feed type.
 
 *** =instructions
@@ -79,7 +81,7 @@ These arguments are useful when you know you want to import certain columns of t
 In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also provide custom column specifications when you're reading in the data.
 
 *** =instructions
-The `readr` package is loaded in your workspace.
+In this exercise and all following, the `readr` package will be pre-loaded in your workspace.
 
 - Use the `read_tsv()` function to read in the `Salaries.tsv` file with a custom `cols()` specification that tells R to autogenerate column names skip columns `X2`, `X3`, and `X4`. Store the result in an object called `salaries`.
 - View the `head()` of `salaries`.
