@@ -9,8 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Chapter 1: Reading in data
 
-* Read delimited files: `read_delim()`, `read_csv()`, `read_tsv()`, `read_csv2()`
-    * 1 exercise each (4)
+* Read delimited files: `read_csv()`, `read_tsv()`, `read_csv2()`
+    * 1 exercise each (3)
     * `col_names` and `col_type` argument specified with `col()` specification.
    
 * Read fixed width files: `read_fwf()`, `read_table()`.

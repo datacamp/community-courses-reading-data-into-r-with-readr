@@ -21,7 +21,7 @@ Your call to `read_csv()` should take one argument: the name of the CSV file, in
 
 *** =pre_exercise_code
 ```{r}
-## TODO: insert link from teach app
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", "chickwts.csv")
 ```
 
 *** =sample_code
