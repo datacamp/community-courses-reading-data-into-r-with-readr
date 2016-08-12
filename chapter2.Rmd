@@ -106,7 +106,8 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
+trees <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/weather.csv")
 ```
 
 *** =sample_code
@@ -138,7 +139,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
@@ -170,7 +171,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
@@ -202,7 +203,7 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
 ```
 
 *** =sample_code
