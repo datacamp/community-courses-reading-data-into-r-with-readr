@@ -94,11 +94,12 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ae367ecf0a
 ## Creating Date objects
 
-Use parse_date to create Date columns in weather data.
+The `readr` import functions can automatically recognize dates in standard ISO 8601 format (YYYY-MM-DD) and parse columns accordingly.  If you want to import a dataset with dates in other formats, you can use `parse_date()`.
+
+In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.
 
 *** =instructions
-- instruction 1
-- instruction 2
+Parse the `date` column of `weather` using `parse_date()`.
 
 *** =hint
 hint comes here
