@@ -1,7 +1,7 @@
 title: "Using the readr Package"
 author_field: insert author name here
 description: "In this mini-course, you'll learn several useful features 
-  of Hadley Wickham's `readr` package.  You'll get practice importing and 
+  of Hadley Wickham's readr package.  You'll get practice importing and 
   exporting data sets, and then learn some more advanced features, including 
   functions to help with type conversion."
 
