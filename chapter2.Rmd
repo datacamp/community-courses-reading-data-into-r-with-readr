@@ -5,7 +5,9 @@ description : Once you have successfully imported your data, you may need to cha
 --- type:NormalExercise lang:r xp:100 skills:1 key:ddabbd341d
 ## Coercing columns to different data types
 
-Use type_convert to change the data type of numerical data in trees.
+The import functions in `readr` are quite good at guessing the correct data types for each column in a dataset.  Of course, they aren't perfect, so sometimes you will need to change the type of a column after importing.
+
+You might also find that the way your data is encoded prevented `readr` from assigning it the desired type.  If your dataset stores dates like August 12, 2016 as `20160812`, it will of course be read as an integer.
 
 *** =instructions
 - instruction 1
