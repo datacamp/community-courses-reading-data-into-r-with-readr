@@ -7,14 +7,20 @@ description : Once you have successfully imported your data, you may need to cha
 
 The import functions in `readr` are quite good at guessing the correct data types for each column in a dataset.  Of course, they aren't perfect, so sometimes you will need to change the type of a column after importing.
 
-You might also find that the way your data is encoded prevented `readr` from assigning it the desired type.  If your dataset stores dates like August 12, 2016 as `20160812`, it will of course be read as an integer.
+You might also find that the way your data is encoded prevented `readr` from assigning it the desired type.  If your dataset stores dates like August 12, 2016 as `20160812`, it will of course be read as an integer.  You could then insert dashes at the appropriate locations and call `type_convert()` to ask `readr` to try parsing again.
+
+In this exercise, you'll be calling `type_convert()` using a column specification you create.  This is a manual override and should not be needed often.  To create the column specification, you'll use `cols()` as follows:
+
+```
+# Converts each column to specified type (i for int, d for double, etc.)
+new_df <- type_convert(df, col_types = cols(col1 = "d", col2 = ...))
+```
 
 *** =instructions
-- instruction 1
-- instruction 2
+Use `type_convert` to change all columns of `trees` (`Girth`, `Height`, and `Volume`) to doubles.  Assign the resulting data frame to the name `trees2`.
 
 *** =hint
-hint comes here
+Hint comes here
 
 *** =pre_exercise_code
 ```{r}
@@ -23,7 +29,7 @@ hint comes here
 
 *** =sample_code
 ```{r}
-# sample code
+## trees is pre-loaded
 ```
 
 *** =solution
