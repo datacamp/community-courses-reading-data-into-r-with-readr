@@ -20,25 +20,42 @@ new_df <- type_convert(df, col_types = cols(col1 = "d", col2 = ...))
 Use `type_convert` to change all columns of `trees` (`Girth`, `Height`, and `Volume`) to doubles.  Assign the resulting data frame to the name `trees2`.
 
 *** =hint
-Hint comes here
+`type_convert()` should take two arguments:
+- A data frame, `trees`
+- The result of a function call: `cols(Girth = "d", Height = "d", Volume = "d")`
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
+trees <- read_csv2("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/trees.csv")
 ```
 
 *** =sample_code
 ```{r}
 ## trees is pre-loaded
+
+# Convert all columns to double
+trees2 <- type_convert(trees, col_types = cols(Girth = "d", Height = "d", Volume = "d"))
 ```
 
 *** =solution
 ```{r}
-# solution code
+## trees is pre-loaded
+
+# Convert all columns to double
+trees2 <- type_convert(trees, col_types = cols(Girth = "d", Height = "d", Volume = "d"))
 ```
 
 *** =sct
 ```{r}
+test_correct({test_object("trees2")}, 
+             {
+                 test_function("type_convert", 
+                               args = c("df", "col_types"), 
+                               eval = FALSE)
+                 test_error()
+             })
+test_error()
 success_msg("Great work!")
 ```
 
