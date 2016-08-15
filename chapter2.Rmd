@@ -185,7 +185,7 @@ debt$amount <- parse_number(debt$amount)
 
 *** =sct
 ```{r}
-test_correct({test_object(debt)}, 
+test_correct({test_object("debt")}, 
              {
                  test_function("parse_number", args = "x", eval = FALSE)
                  test_error()
