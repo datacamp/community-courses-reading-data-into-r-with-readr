@@ -64,14 +64,14 @@ success_msg("Great work!")
 
 As you saw in the last chapter, one of the features of `readr` import functions is that they don't automatically convert all strings into factors like `read.csv()` does.  Sometimes, though, you want one or more columns of data to be interpreted as factors.
 
-In those situations, you can use `parse_factor()` after importing your data.  You need to supply the column to be parsed and a vector of possible values as arguments to your call.  In this case, you'll be parsing the 
+In those situations, you can use `parse_factor()` after importing your data.  You need to supply the column to be parsed and a vector of possible values as arguments to your call.  In this case, you'll be parsing the `title` and `gender` columns of pre-loaded data frame `salaries`.
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Use `parse_factor()` to convert the `title` column of `salaries` to a factor.  Supply `c("Prof", "AsstProf", "AssocProf")` as the `levels` argument.  Assign the result of the function call back to `salaries$title`.
+- Use the same function to parse the `gender` column of `salaries`.  Supply `c("Male", "Female")` as the `levels` argument.  Assign the result to `salaries$gender`.
 
 *** =hint
-hint comes here
+Both calls to `parse_factor()` should take two arguments.  The first argument should be the column to be parsed.  The second argument should be the given character vector.
 
 *** =pre_exercise_code
 ```{r}
@@ -86,16 +86,26 @@ names(salaries) <- c("title", "gender", "salary")
 
 *** =sample_code
 ```{r}
-# sample code
+# Parse the title column
+salaries$title <- parse_factor(salaries$title, levels = c("Prof", "AsstProf", "AssocProf"))
+
+# Parse the gender column
+salaries$gender <- parse_factor(salaries$gender, levels = c("Male", "Female"))
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Parse the title column
+salaries$title <- parse_factor(salaries$title, levels = c("Prof", "AsstProf", "AssocProf"))
+
+# Parse the gender column
+salaries$gender <- parse_factor(salaries$gender, levels = c("Male", "Female"))
 ```
 
 *** =sct
 ```{r}
+test_function("parse_factor", args = c("x", "levels"), index = 1, eval = FALSE)
+test_function("parse_factor", args = c("x", "levels"), index = 2, eval = FALSE)
 success_msg("Great work!")
 ```
 
@@ -107,7 +117,7 @@ The `readr` import functions can automatically recognize dates in standard ISO 8
 In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.  In order to specify this format, you'll use `%m` for two-digit month, `%d` for two-digit day, and `%Y` for four-digit year.
 
 *** =instructions
-Parse the `date` column of `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`.
+Parse the `date` column of pre-loaded data frame `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`.
 
 *** =hint
 `parse_date()` should take the `date` column of `weather` and `"%m/%d/%Y"` as arguments.
