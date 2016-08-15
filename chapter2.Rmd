@@ -155,11 +155,14 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:3ace73122f
 ## Parsing number formats
 
-Use parse_number to interpret national debt data as currency and numbers with commas.
+The `readr` importing functions can sometimes run into trouble parsing a column as numbers when it contains non-numeric symbols in addition to numerals.
+
+For example, we loaded a data frame called `debt` containing the national debt of the US in different years.  Take a look at `head(debt)` to see that even the debt amount is stored as characters.
+
+Your job is to use `parse_number()` to coerce the `amount` column containing debt values to numeric.
 
 *** =instructions
-- instruction 1
-- instruction 2
+Use `parse_number()` to interpret the `amount` column of the pre-loaded `debt` data frame.  Assign the result of the funciton call back to the `amount` column.
 
 *** =hint
 hint comes here
@@ -168,7 +171,7 @@ hint comes here
 ```{r}
 library(readr)
 debt <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/national_debt.csv")
-names(debt) <- c("month", "amount")
+names(debt) <- c("date", "amount")
 ```
 
 *** =sample_code
