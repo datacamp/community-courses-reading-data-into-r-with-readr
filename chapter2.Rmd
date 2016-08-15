@@ -221,13 +221,13 @@ download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_156
 *** =sample_code
 ```{r}
 # Specifications of chickwts
-spec_csv(chickwts.csv)
+spec_csv("chickwts.csv")
 ```
 
 *** =solution
 ```{r}
 # Specifications of chickwts
-spec_csv(chickwts.csv)
+spec_csv("chickwts.csv")
 ```
 
 *** =sct
