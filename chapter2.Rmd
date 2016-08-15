@@ -200,64 +200,38 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:74ee790657
 ## Viewing metadata before importing
 
-Use spec_delim() to preserve metadata to be imported later.
+In some cases, it may be easier to get an idea of how `readr` plans to parse a dataset before you actually import it.  When you see the planned column specification, you might decide to change the type of one or more columns, for example.
+
+`spec` functions exist for .csv and .tsv files, and for other file types by using the `delim` argument in `spec_delim()`.
+
+In this final exercise, you'll use `spec_csv` to get a preview of how `chickwts.csv` would be imported.
 
 *** =instructions
-- instruction 1
-- instruction 2
+Use `spec_csv` to determine how `chickwts.csv` will be parsed upon import.  Simply print the specification to the console.
 
 *** =hint
-hint comes here
+`spec_csv` just takes one argument: a file name in quotes.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", "chickwts.csv")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Specifications of chickwts
+spec_csv(chickwts.csv)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Specifications of chickwts
+spec_csv(chickwts.csv)
 ```
 
 *** =sct
 ```{r}
+test_output_contains(spec_csv("chickwts.csv"))
 success_msg("Great work!")
 ```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:832bd3d11f
-## Importing metadata
-
-Recover metadata from the previous exercise.
-
-*** =instructions
-- instruction 1
-- instruction 2
-
-*** =hint
-hint comes here
-
-*** =pre_exercise_code
-```{r}
-library(readr)
-```
-
-*** =sample_code
-```{r}
-# sample code
-```
-
-*** =solution
-```{r}
-# solution code
-```
-
-*** =sct
-```{r}
-success_msg("Great work!")
-```
-
