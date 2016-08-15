@@ -62,7 +62,9 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:4d212a1085
 ## Coercing character columns into factors
 
-Use parse_factor to interpret columns from professor salaries as factors.
+As you saw in the last chapter, one of the features of `readr` import functions is that they don't automatically convert all strings into factors like `read.csv()` does.  Sometimes, though, you want one or more columns of data to be interpreted as factors.
+
+In those situations, you can use `parse_factor()` after importing your data.  You need to supply the column to be parsed and a vector of possible values as arguments to your call.  In this case, you'll be parsing the 
 
 *** =instructions
 - instruction 1
@@ -73,7 +75,13 @@ hint comes here
 
 *** =pre_exercise_code
 ```{r}
-# pec
+library(readr)
+salaries <- read_tsv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", col_names = FALSE, col_types = cols(
+    X2 = col_skip(),
+    X3 = col_skip(), 
+    X4 = col_skip()
+))
+names(salaries) <- c("title", "gender", "salary")
 ```
 
 *** =sample_code
@@ -96,32 +104,41 @@ success_msg("Great work!")
 
 The `readr` import functions can automatically recognize dates in standard ISO 8601 format (YYYY-MM-DD) and parse columns accordingly.  If you want to import a dataset with dates in other formats, you can use `parse_date()`.
 
-In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.
+In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.  In order to specify this format, you'll use `%m` for two-digit month, `%d` for two-digit day, and `%Y` for four-digit year.
 
 *** =instructions
-Parse the `date` column of `weather` using `parse_date()`.
+Parse the `date` column of `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`.
 
 *** =hint
-hint comes here
+`parse_date()` should take the `date` column of `weather` and `"%m/%d/%Y"` as arguments.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
-trees <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/weather.csv")
+weather <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/weather.csv")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Change type of date column
+weather$date <- parse_date(weather$date, format = "%m/%d/%Y")
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Change type of date column
+weather$date <- parse_date(weather$date, format = "%m/%d/%Y")
 ```
 
 *** =sct
 ```{r}
+test_correct({test_object("weather")}, 
+             {
+                 test_function("parse_date", args = c("x", "format"), 
+                               eval = FALSE)
+                 test_error()
+             })
+test_error()
 success_msg("Great work!")
 ```
 
