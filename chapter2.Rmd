@@ -16,8 +16,8 @@ In this exercise, you'll be calling `type_convert()` using a column specificatio
 # i for int, d for double, etc.
 
 new_df <- type_convert(df, 
-    col_types = cols(col1 = "d", 
-                     col2 = ...))
+           col_types = cols(col1 = "d", 
+                            col2 = ...))
 ```
 
 *** =instructions
