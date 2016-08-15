@@ -117,7 +117,7 @@ The `readr` import functions can automatically recognize dates in standard ISO 8
 In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.  In order to specify this format, you'll use `%m` for two-digit month, `%d` for two-digit day, and `%Y` for four-digit year.
 
 *** =instructions
-Parse the `date` column of pre-loaded data frame `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`.
+Parse the `date` column of pre-loaded data frame `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`, and assign the result back to the `date` column.
 
 *** =hint
 `parse_date()` should take the `date` column of `weather` and `"%m/%d/%Y"` as arguments.
@@ -167,25 +167,35 @@ hint comes here
 *** =pre_exercise_code
 ```{r}
 library(readr)
+debt <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/national_debt.csv")
+names(debt) <- c("month", "amount")
 ```
 
 *** =sample_code
 ```{r}
-# sample code
+# Parse amount column as a number
+debt$amount <- parse_number(debt$amount)
 ```
 
 *** =solution
 ```{r}
-# solution code
+# Parse amount column as a number
+debt$amount <- parse_number(debt$amount)
 ```
 
 *** =sct
 ```{r}
+test_correct({test_object(debt)}, 
+             {
+                 test_function("parse_number", args = "x", eval = FALSE)
+                 test_error()
+             })
+test_error()
 success_msg("Great work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:74ee790657
-## Saving metadata to the disk
+## Viewing metadata before importing
 
 Use spec_delim() to preserve metadata to be imported later.
 
