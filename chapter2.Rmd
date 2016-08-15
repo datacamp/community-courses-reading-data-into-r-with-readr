@@ -232,6 +232,6 @@ spec_csv("chickwts.csv")
 
 *** =sct
 ```{r}
-test_output_contains(spec_csv("chickwts.csv"))
+test_output_contains("spec_csv('chickwts.csv')")
 success_msg("Great work!")
 ```
