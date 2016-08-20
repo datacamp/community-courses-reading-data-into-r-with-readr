@@ -1,5 +1,5 @@
 ---
-title       : Parsing functions in readr
+title       : Parsing data with readr
 description : "Once you have successfully imported your data, you may need to change the type of one or more columns. This chapter shows you how."
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:ddabbd341d
