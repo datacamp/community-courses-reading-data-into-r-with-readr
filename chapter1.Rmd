@@ -5,13 +5,13 @@ description : This chapter covers all the useful `readr` functions that reads in
 --- type:NormalExercise lang:r xp:100 skills:1 key:086558b449
 ## Reading a .csv file
 
-Welcome to this mini-course on the `readr` package!  Over the next two chapters, you’ll be exposed to many of the great features this chapter has to offer.
+Welcome to this mini-course on the `readr` package!  Over the next two chapters, you’ll be exposed to many of the great features this package has to offer.
 
-Let’s get started right away with some basic importing features.  Your first task will be to master the use of the `read_csv()` function.  There are many arguments available, but the only required argument is `file`, a path to a CSV file on the disk.
+Let’s get started right away with some basic importing features.  Your first task will be to master the use of the `read_csv()` function.  There are many arguments available, but the only required argument is `file`, a path to a CSV file on your computer (or the web).
 
-If you've imported data in the past, you've probably used `read.csv()`, which comes in base R.  One big advantage that `read_csv()` has over the base function is that it doesn't convert strings into factors by default.  Instead, `read_csv()` recognizes 8 different data types (integer, logical, etc.) and leaves anything else as characters.  That way, you don't have to set `stringsAsFactors` to `FALSE` any time you import a CSV file with character strings.
+If you've imported data in the past, you've probably used the base R function `read.csv()`.  One big advantage that `read_csv()` has over `read.csv()` is that it doesn't convert strings into factors by default.  Instead, `read_csv()` recognizes 8 different data types (integer, logical, etc.) and leaves anything else as characters.  That means you don't have to set `stringsAsFactors` to `FALSE` every time you import a CSV file with character strings!
 
-You’ll be practicing your importing skills on a dataset containing weights of chickens and their feed type.
+You’ll practice your importing skills on a dataset containing weights of chickens and their feed type.
 
 *** =instructions
 - Load the `readr` package.
@@ -19,23 +19,24 @@ You’ll be practicing your importing skills on a dataset containing weights of 
 - View the `head()` of `cwts`.
 
 *** =hint
-Your call to `read_csv()` should take one argument: the name of the CSV file, in quotes.
+Your call to `read_csv()` should take one argument: the name of the CSV file (in quotes).
 
 *** =pre_exercise_code
 ```{r}
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", "chickwts.csv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", 
+              destfile = "chickwts.csv")
 ```
 
 *** =sample_code
 ```{r}
 # Load readr
-library(readr)
+
 
 # Import chickwts.csv: cwts
-cwts <- read_csv("chickwts.csv")
+
 
 # View the head of cwts
-head(cwts)
+
 ```
 
 *** =solution
@@ -62,7 +63,7 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:5c4acd4138
 ## Reading a .tsv file
 
-In the previous exercise, you might have noticed this message when you called `read_csv()`:
+In the previous exercise, you may have noticed this message when you called `read_csv()`:
 
 ```
 Parsed with column specification:
@@ -72,18 +73,18 @@ cols(
 )
 ```
 
-This occurs every time any `readr` function is called to import data. In fact, all `readr` functions that import data has the argument `col_type`, which allows for custom column specifications. The message shows how the `col_type` argument was specified by default. Notice the column specification is created by `cols()` and in it, are the names of the columns and some `col_*()` functions that tell R to import a certain column as `*`. For example, the `weight` column was imported as `integer` and the `feed` column as `character` by default. One special `col_*()` function is the `col_skip()` column, which tells R to skip that column when importing the data.
+This occurs every time a `readr` function is called to import data. In fact, all `readr` functions that import data have the argument `col_type`, which allows for custom column specifications. The message shows how the `col_type` argument was specified by default. Notice the column specification is created by `cols()` and in it are the names of the columns and some `col_*()` functions that tell R to import a certain column as `*`. For example, the `weight` column was imported as `integer` and the `feed` column as `character`, by default. One special `col_*()` function is `col_skip()`, which tells R to skip that column when importing the data.
 
-All `readr` functions that import data also has the argument `col_names` which is used when you want to name the columns differently from what's in the data file. This argument takes in either `TRUE`, `FALSE`, or a character vector of column names. If set equal to `TRUE`, the first row of the input will be used as the column names. If `FALSE`, column names will be generated automatically: `X1`, `X2`, `X3`, etc. If `col_names` is a character vector, the values will be used as the names of the columns, and the first row of the input will be read into the first row of the output data frame.
+All `readr` functions that import data also have the argument `col_names`, which is used when you want to name the columns differently from what's in the data file. This argument takes in either `TRUE`, `FALSE`, or a character vector of column names. If set equal to `TRUE`, the first row of the input will be used as the column names. If `FALSE`, column names will be generated automatically: `X1`, `X2`, `X3`, etc. If `col_names` is a character vector, the values will be used as the names of the columns and the first row of the input will be read into the first row of the output data frame.
 
 These arguments are useful when you know you want to import certain columns of the data as certain types with certain names. The `readr` package does a great job guessing what each column type and name should be, but it's important to know that you can also customize this further with the `col_names` and `col_type` arguments.
 
 In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also provide custom column specifications when you're reading in the data.
 
 *** =instructions
-In this exercise and all following, the `readr` package will be pre-loaded in your workspace.
+In this exercise and all following, the `readr` package will be pre-loaded in your workspace so you don't need to load it yourself with `library(readr)`.
 
-- Use the `read_tsv()` function to read in the `Salaries.tsv` file with a custom `cols()` specification that tells R to autogenerate column names skip columns `X2`, `X3`, and `X4`. Store the result in an object called `salaries`.
+- Use the `read_tsv()` function to read in the `Salaries.tsv` file with a custom `cols()` specification that tells R to autogenerate column names and skip columns `X2`, `X3`, and `X4`. Store the result in an object called `salaries`.
 - View the `head()` of `salaries`.
 
 *** =hint
@@ -95,7 +96,8 @@ library(readr)
 
 # Change file extension when downloading
 # Workaround because teach app appears not to recognize TSV files
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", "Salaries.tsv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", 
+              destfile = "Salaries.tsv")
 ```
 
 *** =sample_code
@@ -103,11 +105,12 @@ download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_156
 ## readr is loaded
 
 # Import data: salaries
-salaries <- read_tsv("Salaries.tsv", col_names = FALSE, col_types = cols(
-    X2 = col_skip(),
-    X3 = col_skip(), 
-    X4 = col_skip()
-))
+salaries <- read_tsv(___, col_names = ___,
+                     col_types = cols(
+                         X2 = ___,
+                         X3 = ___,
+                         X4 = ___,
+                     ))
 
 # View first six rows of salaries
 head(salaries)
@@ -118,11 +121,12 @@ head(salaries)
 ## readr is loaded
 
 # Import data: salaries
-salaries <- read_tsv("Salaries.tsv", col_names = FALSE, col_types = cols(
-    X2 = col_skip(),
-    X3 = col_skip(), 
-    X4 = col_skip()
-))
+salaries <- read_tsv("Salaries.tsv", col_names = FALSE, 
+                     col_types = cols(
+                         X2 = col_skip(),
+                         X3 = col_skip(), 
+                         X4 = col_skip()
+                     ))
 
 # View first six rows of salaries
 head(salaries)
@@ -133,7 +137,7 @@ head(salaries)
 test_function("read_tsv", args = c("file", "col_names", "col_types"), not_called_msg = "Don't forget to call `read_tsv()` to import your data.")
 test_function("head", incorrect_msg = "Did you print the first six rows of `salaries` using `head()`?")
 test_error()
-success_msg("Nice work! The `readr` package makes importing data a lot more efficient with arguments that allows more flexibility. In the next exercise, you'll learn about another `readr` function, the `read_csv2()` function, used to import European data.")
+success_msg("Nice work! The `readr` package makes importing data a lot more efficient with arguments that allows more flexibility. In the next exercise, you'll learn about another `readr` function, `read_csv2()`, which is used to import European data.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:26f83a8842
@@ -141,12 +145,12 @@ success_msg("Nice work! The `readr` package makes importing data a lot more effi
 
 In most of Europe, commas (rather than periods) are used as decimal points.  This creates an issue for comma-separated value files: since commas can no longer be used to separate values, semicolons are used instead.
 
-For this reason, `readr` provides `read_csv2()` which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`.
+For this reason, `readr` provides `read_csv2()`, which looks for `;` to indicate column breaks and `,` to indicate decimal points.  Other than that, it behaves just like `read_csv()`.
 
 In this exercise, you'll see what happens when you incorrectly use `read_csv()` on datasets that contain values separated by semicolons. You'll import a dataset that contains information on the girth, height, and volume for Black Cherry Trees.
 
 *** =instructions
-The `readr` package and the `trees.csv` file are already loaded in your workspace.
+The `readr` package and the `trees.csv` file are loaded in your workspace.
 
 - Correctly import `trees.csv` with the `read_csv2()` function and store the result as `trees`.
 - View the dimensions of `trees` using the `dim()` function and print the first six rows of `trees` to the console.
@@ -159,36 +163,37 @@ The `read_csv()` and `read_csv2()` functions have the same syntax. Specify the `
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/trees.csv", "trees.csv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/trees.csv", 
+              destfile = "trees.csv")
 ```
 
 *** =sample_code
 ```{r}
-# Import data with read_csv2()
-trees <- read_csv2("trees.csv")
+# Import data with read_csv2(): trees
 
-# View dimensions and head: trees
-dim(trees)
-head(trees)
 
-# Import data with read_csv()
-trees_wrong <- read_csv("trees.csv")
+# View dimensions and head of trees
 
-# View dimensions and head: trees_wrong
-dim(trees_wrong)
-head(trees_wrong)
+
+
+# Import data with read_csv(): trees_wrong
+
+
+# View dimensions and head of trees_wrong
+
+
 ```
 
 *** =solution
 ```{r}
-# Import data with read_csv2()
+# Import data with read_csv2(): trees
 trees <- read_csv2("trees.csv")
 
-# View dimensions and head: trees
+# View dimensions and head of trees
 dim(trees)
 head(trees)
 
-# Import data with read_csv()
+# Import data with read_csv(): trees_wrong
 trees_wrong <- read_csv("trees.csv")
 
 # View dimensions and head: trees_wrong
@@ -219,9 +224,9 @@ success_msg("Excellent work! The `read_csv()` function combined the three column
 
 Sometimes you will run into files containing columns of data that are separated by whitespace and all line up on one side (like how R prints data frames to the console).  These files can be read by `readr`'s `read_table()` function.
 
-Inside `names.txt` are a few famous names with states and fake phone numbers.  When you import it, you will also set the name of each column by passing a vector to the `col_names` argument.
+Inside `names.txt` are a few famous names with states and (fake) phone numbers.  When you import it, you will also set the name of each column by passing a vector to the `col_names` argument.
 
-After your first import, you'll notice that there was a missing value in the `state` column that was left as a character string instead of being converted to `NA`.  We can fix that by specifying the `na` argument to include entries of `"NA"` or `"null"`.
+After your first import, you'll notice that there is a missing value in the `state` column that was left as a character string instead of being converted to `NA`.  We can fix that by specifying the `na` argument to include entries of `"NA"` or `"null"`.
 
 *** =instructions
 - Import `names.txt` using `read_table()`.  Pass a vector containing `"name"`, `"state"`, and `"phone"` as the `col_names` argument.  Call the resulting data frame `names`.
@@ -230,27 +235,28 @@ After your first import, you'll notice that there was a missing value in the `st
 - View the head of `names` again.
 
 *** =hint
-`read_table()` should take a file name, in quotes, and the character vector `c("name", "state", "phone")` as arguments.
+`read_table()` should take a file name, in quotes, and the character vector `c("name", "state", "phone")` as arguments. The `na` argument will also take a character vector: `c("NA", "null")`.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/names.txt", "names.txt")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/names.txt", 
+              destfile = "names.txt")
 ```
 
 *** =sample_code
 ```{r}
 # Import names.txt: names
-names <- read_table("names.txt", col_names = c("name", "state", "phone"))
+
 
 # Print head of names
-head(names)
+
 
 # Import names.txt, accounting for null values: names2
-names2 <- read_table("names.txt", col_names = c("name", "state", "phone"), na = c("NA", "null"))
+
 
 # Print head of names2
-head(names2)
+
 ```
 
 *** =solution
@@ -293,13 +299,13 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:86feb802cd
 ## Reading a text file
 
-If you want to perform some kind of text mining analysis, it can be very useful to quickly import text files into R.  `readr` offers two ways of doing so.
+It can be very useful to quickly import ordinary text files into R if, for example, you want to perform some kind of text mining analysis.  `readr` offers two ways of doing so.
 
 The first way is to use `read_lines()`.  This function returns a vector of character strings.  Each item in the vector represents one line in the original file.
 
 The second way is to use `read_file()`, which returns a length 1 vector of the entire file, with line breaks represented as `\n`.
 
-In this exercise, you'll be working with a collection of tweets from Carrot Facts on Twitter.
+In this exercise, you'll be working with a collection of tweets from [@RealCarrotFacts](https://twitter.com/realcarrotfacts) on Twitter.
 
 *** =instructions
 - Import `tweets.txt` using `read_lines()`.  Call the resulting character vector `tweets`.
@@ -311,16 +317,17 @@ Both functions take one argument: a file name in quotes.
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/tweets.txt", "tweets.txt")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/tweets.txt", 
+              destfile = "tweets.txt")
 ```
 
 *** =sample_code
 ```{r}
 # Import as a character vector, one item per line: tweets
-tweets <- read_lines("tweets.txt")
+
 
 # Import as a length 1 vector: tweets_all
-tweets_all <- read_file("tweets.txt")
+
 ```
 
 *** =solution
@@ -334,7 +341,7 @@ tweets_all <- read_file("tweets.txt")
 
 *** =sct
 ```{r}
-test_correct({test_object("tweets")}, 
+test_correct({test_object("tweets")},
              {
                  test_function("read_lines", args = "file")
                  test_error()
@@ -351,7 +358,7 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:1475b4009c
 ## Writing .csv and .tsv files
 
-After importing and working with a data set, you'll want to save it off to the disk to make sure that your hard work doesn't go to waste.  In this exercise, you'll learn how.
+After importing and working with a dataset, you'll want to save it off to the disk to make sure that your hard work doesn't go to waste.  In this exercise, you'll learn how.
 
 If you've used `write.csv()` in the base package, you may have noticed that by default, row numbers are inserted as the leftmost column.  Then when you import back into R, the row numbers show up as a column of data.
 
@@ -360,7 +367,7 @@ Not so with `write_csv()`, the equivalent function in the `readr` package.  No d
 Take a look at the other arguments using `?write_csv`.  Notice especially that because the default value of `col_names` is `!append`, switching to `append` mode (add to the end of a pre-existing file) automatically disables the writing of column names, unless you manually override both.  Makes sense, right?
 
 *** =instructions
-- Use `write_csv()` to save the `cwts` data set as `chickwts.csv`.
+- Use `write_csv()` to save the `cwts` dataset as `chickwts.csv`.
 - Save `cwts2`, which has more chicken data, using the same function and file name, but this time set the `append` argument to `TRUE`.
 
 *** =hint
@@ -410,7 +417,7 @@ For example, if your dataset has one column of factors and other columns with ch
 
 If you've used `saveRDS()` in the past, you will have no trouble using `write_rds()`.  The only major difference between the two is that `write_rds()` does not compress the file by default.
 
-The corrolary to `write_rds()` is `read_rds()`.  Again, this is very similar to the base package's `readRDS()` (in fact, it's a wrapper around the same).  It does, however, use a naming scheme that's consisent with the rest of `readr`.
+The sister function of `write_rds()` is `read_rds()`.  Again, this is very similar to base R's `readRDS()` (in fact, it's a wrapper around the same).  It does, however, use a naming scheme that's consisent with the rest of `readr`.
 
 *** =instructions
 - Use `write_rds()` to save the `trees` data frame as `trees.rds`.
@@ -431,13 +438,13 @@ trees <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course
 *** =sample_code
 ```{r}
 # Save trees as trees.rds
-write_rds(trees, "trees.rds")
+
 
 # Import trees.rds: trees2
-trees2 <- read_rds("trees.rds")
+
 
 # Check whether trees and trees2 are the same
-identical(trees, trees2)
+
 ```
 
 *** =solution
@@ -465,4 +472,3 @@ test_output_contains("identical(trees, trees2)")
 test_error()
 success_msg("Great work!")
 ```
-

@@ -219,7 +219,8 @@ Use `spec_csv` to determine how `chickwts.csv` will be parsed upon import.  Simp
 *** =pre_exercise_code
 ```{r}
 library(readr)
-download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", "chickwts.csv")
+download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv", 
+              destfile = "chickwts.csv")
 ```
 
 *** =sample_code
