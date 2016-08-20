@@ -1,6 +1,6 @@
 ---
 title       : Importing data with readr
-description : "This chapter covers all the useful `readr` functions that read data into R."
+description : "This chapter covers all the useful <code>readr</code> functions that read data into R."
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:086558b449
 ## Reading a .csv file
@@ -82,7 +82,7 @@ These arguments are useful when you know you want to import certain columns of t
 In this exercise, you’ll import a set of data on professors’ salaries called `Salaries.tsv` with `read_tsv()`, another `readr` function that imports files with tab-separated values. This time, you’ll also provide custom column specifications when you're reading in the data.
 
 *** =instructions
-In this exercise and all following, the `readr` package will be pre-loaded in your workspace so you don't need to load it yourself with `library(readr)`.
+In this exercise and all following, the `readr` package will be preloaded in your workspace so you don't need to load it yourself with `library(readr)`.
 
 - Use the `read_tsv()` function to read in the `Salaries.tsv` file with a custom `cols()` specification that tells R to autogenerate column names and skip columns `X2`, `X3`, and `X4`. Store the result in an object called `salaries`.
 - View the `head()` of `salaries`.
@@ -196,7 +196,7 @@ head(trees)
 # Import data with read_csv(): trees_wrong
 trees_wrong <- read_csv("trees.csv")
 
-# View dimensions and head: trees_wrong
+# View dimensions and head of trees_wrong
 dim(trees_wrong)
 head(trees_wrong)
 ```
@@ -371,7 +371,7 @@ Take a look at the other arguments using `?write_csv`.  Notice especially that b
 - Save `cwts2`, which has more chicken data, using the same function and file name, but this time set the `append` argument to `TRUE`.
 
 *** =hint
-Your first call to `write_csv()` should take two arguments: a data frame and a new file name in quotes.  Your second call should take three arguments: a data frame, a pre-existing file name in quotes, and `append = TRUE`.
+Your first call to `write_csv()` should take two arguments: a data frame and a new file name in quotes.  Your second call should take three arguments: a data frame, an existing file name in quotes, and `append = TRUE`.
 
 *** =pre_exercise_code
 ```{r}
@@ -385,10 +385,10 @@ cwts2 <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course
 *** =sample_code
 ```{r}
 # Save cwts as chickwts.csv
-write_csv(cwts, "chickwts.csv")
+
 
 # Append cwts2 to chickwts.csv
-write_csv(cwts2, "chickwts.csv", append = TRUE)
+
 ```
 
 *** =solution
