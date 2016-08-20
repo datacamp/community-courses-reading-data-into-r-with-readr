@@ -1,7 +1,6 @@
-title: "Using the readr package"
-author_field: insert author name here
+title: "Reading Data into R with readr"
+author_field: The DataCamp Team
 description: "In this mini-course, you'll learn several useful features 
-  of Hadley Wickham's readr package.  You'll get practice importing and 
-  exporting datasets, and then learn some more advanced features, including 
-  functions to help with type conversion."
-
+  of Hadley Wickham's <code>readr</code> package.  First, you'll practice 
+  importing and exporting datasets, then learn some more advanced features
+  including functions to help with type conversion."
