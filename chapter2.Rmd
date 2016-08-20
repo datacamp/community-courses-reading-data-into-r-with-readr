@@ -5,28 +5,34 @@ description : "Once you have successfully imported your data, you may need to ch
 --- type:NormalExercise lang:r xp:100 skills:1 key:ddabbd341d
 ## Coercing columns to different data types
 
-The import functions in `readr` are quite good at guessing the correct data types for each column in a dataset.  Of course, they aren't perfect, so sometimes you will need to change the type of a column after importing.
+The import functions in `readr` are quite good at guessing the correct data type for each column in a dataset.  Of course, they aren't perfect, so sometimes you will need to change the type of a column after importing.
 
-You might also find that the way your data is encoded prevented `readr` from assigning it the desired type.  If your dataset stores dates like August 12, 2016 as `20160812`, it will of course be read as an integer.  You could then insert dashes at the appropriate locations and call `type_convert()` to ask `readr` to try parsing again.
+You might also find that the way your data are encoded prevents `readr` from assigning them the desired types.  If your dataset stores dates like August 12, 2016 as `20160812`, they will of course be read in as integers.  In this situation, you could then insert dashes at the appropriate locations and call `type_convert()` to ask `readr` to try parsing again.
 
 In this exercise, you'll be calling `type_convert()` using a column specification you create.  This is a manual override and should not be needed often.  To create the column specification, you'll use `cols()` as follows:
 
 ```
-# Converts each column to specified type
+# Convert each column to specified type
 # i for int, d for double, etc.
-
 new_df <- type_convert(df, 
-           col_types = cols(col1 = "d", 
-                            col2 = ...))
+            col_types = cols(col1 = "d", 
+                             col2 = "i",
+                             ...
+            ))
 ```
 
 *** =instructions
-Use `type_convert` to change all columns of `trees` (`Girth`, `Height`, and `Volume`) to doubles.  Assign the resulting data frame to the name `trees2`.
+Use `type_convert()` to change all columns of `trees` (`Girth`, `Height`, and `Volume`) to doubles.  Assign the resulting data frame to `trees2`.
 
 *** =hint
 `type_convert()` should take two arguments:
+
 - A data frame, `trees`
-- The result of a function call: `cols(Girth = "d", Height = "d", Volume = "d")`
+- The result of a function call:
+
+```
+cols(Girth = "d", Height = "d", Volume = "d")
+```
 
 *** =pre_exercise_code
 ```{r}
@@ -36,15 +42,15 @@ trees <- read_csv2("http://s3.amazonaws.com/assets.datacamp.com/production/cours
 
 *** =sample_code
 ```{r}
-## trees is pre-loaded
+## trees is loaded
 
 # Convert all columns to double
-trees2 <- type_convert(trees, col_types = cols(Girth = "d", Height = "d", Volume = "d"))
+
 ```
 
 *** =solution
 ```{r}
-## trees is pre-loaded
+## trees is loaded
 
 # Convert all columns to double
 trees2 <- type_convert(trees, col_types = cols(Girth = "d", Height = "d", Volume = "d"))
@@ -66,35 +72,36 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:4d212a1085
 ## Coercing character columns into factors
 
-As you saw in the last chapter, one of the features of `readr` import functions is that they don't automatically convert all strings into factors like `read.csv()` does.  Sometimes, though, you want one or more columns of data to be interpreted as factors.
+As you saw in the last chapter, one of the features of `readr` import functions is that they don't automatically convert strings into factors like `read.csv()` does.  Sometimes, though, you want one or more columns of data to be interpreted as factors.
 
-In those situations, you can use `parse_factor()` after importing your data.  You need to supply the column to be parsed and a vector of possible values as arguments to your call.  In this case, you'll be parsing the `title` and `gender` columns of pre-loaded data frame `salaries`.
+In these situations, you can use `parse_factor()` after importing your data.  You need to supply the column to be parsed and a vector of possible values as arguments to your call.  In this case, you'll be parsing the `title` and `gender` columns of a data frame `salaries` (available in your workspace).
 
 *** =instructions
 - Use `parse_factor()` to convert the `title` column of `salaries` to a factor.  Supply `c("Prof", "AsstProf", "AssocProf")` as the `levels` argument.  Assign the result of the function call back to `salaries$title`.
 - Use the same function to parse the `gender` column of `salaries`.  Supply `c("Male", "Female")` as the `levels` argument.  Assign the result to `salaries$gender`.
 
 *** =hint
-Both calls to `parse_factor()` should take two arguments.  The first argument should be the column to be parsed.  The second argument should be the given character vector.
+Both calls to `parse_factor()` should take two arguments: the column to be parsed and a character vector of factor levels.
 
 *** =pre_exercise_code
 ```{r}
 library(readr)
-salaries <- read_tsv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", col_names = FALSE, col_types = cols(
-    X2 = col_skip(),
-    X3 = col_skip(), 
-    X4 = col_skip()
-))
+salaries <- read_tsv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/Salaries.txt", 
+                     col_names = FALSE, col_types = cols(
+                         X2 = col_skip(),
+                         X3 = col_skip(), 
+                         X4 = col_skip()
+                     ))
 names(salaries) <- c("title", "gender", "salary")
 ```
 
 *** =sample_code
 ```{r}
 # Parse the title column
-salaries$title <- parse_factor(salaries$title, levels = c("Prof", "AsstProf", "AssocProf"))
+salaries$title <- ___
 
 # Parse the gender column
-salaries$gender <- parse_factor(salaries$gender, levels = c("Male", "Female"))
+salaries$gender <- ___
 ```
 
 *** =solution
@@ -116,12 +123,12 @@ success_msg("Great work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ae367ecf0a
 ## Creating Date objects
 
-The `readr` import functions can automatically recognize dates in standard ISO 8601 format (YYYY-MM-DD) and parse columns accordingly.  If you want to import a dataset with dates in other formats, you can use `parse_date()`.
+The `readr` import functions can automatically recognize dates in standard *ISO 8601* format (YYYY-MM-DD) and parse columns accordingly.  If you want to import a dataset with dates in other formats, you can use `parse_date()`.
 
 In this exercise, you'll be working with some weather data.  Each date is stored according to American convention: MM/DD/YYYY.  In order to specify this format, you'll use `%m` for two-digit month, `%d` for two-digit day, and `%Y` for four-digit year.
 
 *** =instructions
-Parse the `date` column of pre-loaded data frame `weather` using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"`, and assign the result back to the `date` column.
+Parse the `date` column of the `weather` data frame using `parse_date()`.  Set the `format` argument to `"%m/%d/%Y"` and assign the result back to the `date` column.
 
 *** =hint
 `parse_date()` should take the `date` column of `weather` and `"%m/%d/%Y"` as arguments.
@@ -135,7 +142,7 @@ weather <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/cour
 *** =sample_code
 ```{r}
 # Change type of date column
-weather$date <- parse_date(weather$date, format = "%m/%d/%Y")
+weather$date <- ___
 ```
 
 *** =solution
@@ -161,12 +168,12 @@ success_msg("Great work!")
 
 The `readr` importing functions can sometimes run into trouble parsing a column as numbers when it contains non-numeric symbols in addition to numerals.
 
-For example, we loaded a data frame called `debt` containing the national debt of the US in different years.  Take a look at `head(debt)` to see that even the debt amount is stored as characters.
+For example, we've loaded a data frame called `debt` containing the national debt of the US in different years.  Take a look at `head(debt)` to see that even the debt amount is stored as characters.
 
-Your job is to use `parse_number()` to coerce the `amount` column containing debt values to numeric.
+Your job is to use `parse_number()` to coerce to numeric the `amount` column containing debt values.
 
 *** =instructions
-Use `parse_number()` to interpret the `amount` column of the pre-loaded `debt` data frame.  Assign the result of the funciton call back to the `amount` column.
+Use `parse_number()` to interpret the `amount` column of the `debt` data frame (available in your workspace).  Assign the result of the function call back to the `amount` column.
 
 *** =hint
 hint comes here
@@ -181,7 +188,7 @@ names(debt) <- c("date", "amount")
 *** =sample_code
 ```{r}
 # Parse amount column as a number
-debt$amount <- parse_number(debt$amount)
+debt$amount <- ___
 ```
 
 *** =solution
@@ -226,7 +233,7 @@ download.file("http://s3.amazonaws.com/assets.datacamp.com/production/course_156
 *** =sample_code
 ```{r}
 # Specifications of chickwts
-spec_csv("chickwts.csv")
+
 ```
 
 *** =solution
