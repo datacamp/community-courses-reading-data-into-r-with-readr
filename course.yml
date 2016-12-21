@@ -1,6 +1,6 @@
 title: "Reading Data into R with readr"
-description: "In this mini-course, you'll learn several useful features 
-  of Hadley Wickham's <code>readr</code> package.  First, you'll practice 
+description: "In this mini-course, you'll learn several useful features
+  of Hadley Wickham's <code>readr</code> package.  First, you'll practice
   importing and exporting datasets, then learn some more advanced features
   including functions to help with type conversion."
 instructors:
@@ -8,3 +8,4 @@ instructors:
 collaborators:
     - jim@datacamp.com
     - tom@datacamp.com
+from: 'r-base-prod:10'
