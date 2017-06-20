@@ -8,4 +8,4 @@ instructors:
 collaborators:
     - jim@datacamp.com
     - tom@datacamp.com
-from: 'r-base-prod:10'
+from: 'r-base-prod:27'
