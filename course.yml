@@ -3,9 +3,4 @@ description: "In this mini-course, you'll learn several useful features
   of Hadley Wickham's <code>readr</code> package.  First, you'll practice
   importing and exporting datasets, then learn some more advanced features
   including functions to help with type conversion."
-instructors:
-    - nick@datacamp.com
-collaborators:
-    - jim@datacamp.com
-    - tom@datacamp.com
 from: 'r-base-prod:27'
